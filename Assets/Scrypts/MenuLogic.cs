@@ -4,25 +4,30 @@ using UnityEngine;
 
 public class MenuLogic : MonoBehaviour
 {
-    public GameObject OptiosMenu;
-    public GameObject MainMenu;
+    public GameObject OptionsMenu;
+    public GameObject MainMenuGame;
+    public GameObject RulesMenu;
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
      public void Options(){
-        OptiosMenu.SetActive(true);
-        MainMenu.SetActive(false);
+        OptionsMenu.SetActive(true);
+        MainMenuGame.SetActive(false);
     }
      public void Back(){
-        OptiosMenu.SetActive(false);
-        MainMenu.SetActive(true);
+        OptionsMenu.SetActive(false);
+        MainMenuGame.SetActive(true);
+    }
+    public void Rules(){
+        RulesMenu.SetActive(true);
+        MainMenuGame.SetActive(false);
+        OptionsMenu.SetActive(false);
     }
    
 }

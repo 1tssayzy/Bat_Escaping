@@ -5,15 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+  public GameObject OptionsMenu;
+    public GameObject MainMenuGame;
+    public GameObject RulesMenu;
   public void PlayGame() {
-    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+  RulesMenu.SetActive(true);
+    OptionsMenu.SetActive(false);
+    MainMenuGame.SetActive(false);
   }
   public void QuitGame() {
     Debug.Log("QUIT!");
     Application.Quit();
   }
-  public void Options(){
-    SceneManager.LoadScene("OptionsMenuj");
-  }
+
     
 }
