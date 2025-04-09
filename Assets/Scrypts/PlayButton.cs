@@ -5,7 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class PlayButton : MonoBehaviour
 {
-    public void PlayGame() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    public GameObject LevelSelect;
+    public GameObject RulesMenu;
+    public void SelectLevel() {
+        LevelSelect.SetActive(true);
+        RulesMenu.SetActive(false);
+    }
+    public void PlayGameEasy() {
+        SceneManager.LoadScene(1);
+    }
+    public void PlayGameHard() {
+        SceneManager.LoadScene(2);
     }
 }
