@@ -1,35 +1,32 @@
- using System.Collections;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class PipeSpawnScrypt : MonoBehaviour
 {
     public GameObject pipe;
-    public float spawnTime = 5;
-    private float timer = 0;   
-    public float heightOffset = 3;
-    
-    
+    public float spawnTime = 5f;
+    public float heightOffset = 3f;
+
     void Start()
     {
-        
+        StartCoroutine(SpawnPipeRoutine());
     }
 
-    void Update()
+    IEnumerator SpawnPipeRoutine()
     {
-     if(timer < spawnTime){
-        timer += Time.deltaTime;
-        } else {
-            spawnPipe();
-            timer = 0;
+        while (true)
+        {
+            SpawnPipe();
+            yield return new WaitForSeconds(spawnTime);
         }
+    }
 
-        }
+    void SpawnPipe()
+    {
+        float lowestPoint = transform.position.y - heightOffset;
+        float highestPoint = transform.position.y + heightOffset;
 
-        void spawnPipe(){
-            float lowestPoint = transform.position.y - heightOffset;
-            float highestPoint = transform.position.y + heightOffset;
-            Instantiate(pipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
-        }
-        
+        Instantiate(pipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
+    }
 }
+
